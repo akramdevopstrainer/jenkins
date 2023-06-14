@@ -1,0 +1,125 @@
+**Build Triggers:**
+
+Build triggers in Jenkins are mechanisms that initiate the execution of a software build process. They automate the process of starting a build based on specific events or conditions. Let's take a look at each option with examples:
+
+1. **Trigger builds remotely (e.g., from scripts):** This option allows you to start a build remotely using scripts or external tools. For example, you can write a script that triggers a build when a specific event occurs, like pushing changes to a code repository. 📜
+
+2. **Build after other projects are built:** With this option, you can configure a build to start automatically after the successful completion of one or more prerequisite builds. It ensures proper order of building projects that depend on each other. For instance, if Project B depends on Project A, Project B will start building only when Project A has finished building successfully. 🏗️
+
+3. **Build periodically:** This option triggers a build at regular intervals or specific times. It is useful for scheduled builds, like nightly builds or regular performance tests. For example, you can schedule a build to run every night to ensure that the latest code changes are integrated and tested. ⏰
+
+4. **GitHub hook trigger for GITScm polling:** This option is specific to integration with GitHub. It uses a webhook mechanism to monitor changes in a GitHub repository. Whenever a code change occurs, it triggers a build process automatically. This enables continuous integration, ensuring that code changes are built and tested as soon as they are pushed to the repository. 🎣
+
+5. **Poll SCM:** This option periodically checks the source code repository for changes. It polls the repository at specified intervals and triggers a build if new commits or changes are detected. For example, if there are new code changes in the repository, a build will be triggered to incorporate those changes. 🔍
+
+```
+Build Triggers:
+----------------
+
+- Trigger builds remotely (e.g., from scripts): 📜
+  Example: A script runs to trigger a build when changes are pushed to a code repository.
+
+- Build after other projects are built: 🏗️
+  Example: Project B starts building only after Project A has successfully finished building.
+
+- Build periodically: ⏰
+  Example: A build is scheduled to run every night to integrate and test the latest code changes.
+
+- GitHub hook trigger for GITScm polling: 🎣
+  Example: A build is triggered automatically whenever there are code changes in a GitHub repository.
+
+- Poll SCM: 🔍
+  Example: A build is triggered if new commits or changes are detected in the source code repository.
+```
+
+**Build Environment:**
+
+Build environment options in Jenkins provide various settings and configurations for the build process. Let's explore these options with examples:
+
+1. **Delete workspace before build starts:** This option clears the workspace, which contains files from previous builds, before starting a new build. It ensures a clean environment for the build process. For example, deleting the workspace before each build helps avoid conflicts or outdated artifacts from previous builds. 🧹
+
+2. **Use secret text(s) or file(s):** This option allows you to securely store and use sensitive information like passwords or API keys during the build process. Secrets are encrypted and can be accessed within the build configuration. For instance, you can securely store an API key as a secret and use it during the build to authenticate with an external service. 🔒
+
+3. **Add timestamps to the Console Output:** This option adds timestamps to the build's console output log. It helps track the timing of each build step or event. Timestamps can be useful for troubleshooting and understanding the duration of different build stages. For example, it helps identify when a specific step started or
+
+ how long it took to complete. 🕒
+
+4. **Inspect build log for published build scans:** This option allows you to examine the build log for any published build scans or reports. Build scans provide detailed information about the build, such as test results, code coverage, and dependencies. Inspecting the build log helps analyze the build quality and identify any issues or improvements. 🔍
+
+5. **Terminate a build if it's stuck:** This option automatically terminates a build if it exceeds a specified time limit or becomes unresponsive. It prevents builds from running indefinitely, consuming resources, and blocking subsequent builds. For instance, if a build process hangs or takes too long, it will be automatically terminated to free up resources. ⏱️
+
+6. **With Ant:** Ant is a build automation tool often used for Java projects. This option configures the build environment to use Ant as the build tool. You can utilize Ant's features, such as compiling code, running tests, and creating build artifacts, within your build process. 🐜
+
+```
+Build Environment:
+------------------
+
+- Delete workspace before build starts: 🧹
+  Example: Clearing the workspace before each build to ensure a clean environment.
+
+- Use secret text(s) or file(s): 🔒
+  Example: Securely storing and using sensitive information like API keys during the build.
+
+- Add timestamps to the Console Output: 🕒
+  Example: Tracking the timing of build steps and events in the console output log.
+
+- Inspect build log for published build scans: 🔍
+  Example: Examining detailed reports and scans in the build log for analysis.
+
+- Terminate a build if it's stuck: ⏱️
+  Example: Automatically stopping a build if it takes too long or becomes unresponsive.
+
+- With Ant: 🐜
+  Example: Configuring the build environment to use Ant as the build tool.
+```
+
+**Build Steps:**
+
+Build steps represent the individual tasks or actions performed during the build process in Jenkins. Here are the explanations of each option with examples:
+
+1. **Filter:** Filtering allows you to include or exclude specific files or resources during the build process based on certain criteria. For example, you can filter to include only Java files in the build or exclude certain directories from being processed.
+
+2. **Execute Windows batch command:** This option executes a command or a series of commands written in the Windows batch scripting language (`.bat` files). It enables running custom scripts or commands specific to the Windows operating system during the build process.
+
+3. **Execute shell:** This option executes commands or scripts written in the shell scripting language (such as Bash, PowerShell, or sh) on a Unix-based build agent. It allows running custom scripts or commands specific to Unix-based operating systems during the build process.
+
+4. **Invoke Ant:** This option invokes the Ant build tool, commonly used for Java projects. It executes tasks defined in an Ant build file (usually an XML file). You can leverage Ant's capabilities for building, testing, and deploying applications within your build process.
+
+5. **Invoke Gradle script:** This option executes a Gradle script, a build automation tool used for Java, Kotlin, and Android projects. Gradle scripts are written in Groovy or Kotlin and define tasks and dependencies for the build process. You can utilize Gradle's features for compiling, managing dependencies, and running tests.
+
+6. **Invoke top-level Maven targets:** This option invokes specific Maven targets defined in a Maven project. Maven is a popular build automation and dependency management tool for Java projects. Maven targets represent actions in the build lifecycle, such as compiling code, running tests, or creating distribution packages.
+
+7. **Run with timeout:** This option sets a maximum time limit for the execution of
+
+ a particular build step. If the step exceeds the specified timeout, it will be automatically terminated. It prevents builds from getting stuck indefinitely and ensures they complete within a reasonable timeframe.
+
+8. **Set build status to "pending" on GitHub commit:** This option updates the status of a GitHub commit to "pending" to indicate that a build is in progress. It provides visibility and feedback to developers and collaborators that the build is being executed.
+
+```
+Build Steps:
+------------
+
+- Filter: 📁
+  Example: Including or excluding specific files or resources during the build process.
+
+- Execute Windows batch command: 💻 (Windows)
+  Example: Running custom scripts or commands specific to the Windows operating system.
+
+- Execute shell: 🐚 (Unix-based)
+  Example: Running custom scripts or commands specific to Unix-based operating systems.
+
+- Invoke Ant: 🐜
+  Example: Executing tasks defined in an Ant build file for building, testing, or deploying Java projects.
+
+- Invoke Gradle script: 📚
+  Example: Running Gradle scripts to automate building, testing, and managing dependencies for Java, Kotlin, and Android projects.
+
+- Invoke top-level Maven targets: 📦
+  Example: Executing specific actions defined in a Maven project, such as compiling, testing, or packaging Java projects.
+
+- Run with timeout: ⏰
+  Example: Setting a maximum time limit for a build step and terminating it if it exceeds the specified duration.
+
+- Set build status to "pending" on GitHub commit: 🚧
+  Example: Updating the status of a GitHub commit to "pending" to indicate an ongoing build process.
+```
