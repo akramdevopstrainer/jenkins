@@ -1,0 +1,47 @@
+# Maven Build
+
+## Overview
+
+This script performs a Maven build for a standalone application by following these steps:
+
+1. Clones the repository from `https://github.com/mdjan2023/maven-standalone-application.git` using the `devopscicd` credentials.
+
+2. Sets up the Maven environment by configuring the necessary environment variables.
+
+3. Displays the Maven version to verify the installation.
+
+4. Builds the Maven project by executing the `mvn install` command.
+
+## Usage
+
+1. Ensure that the required tools (Git, Maven) are installed on the system.
+
+2. Copy the script and save it in a Jenkins Pipeline job.
+
+3. Run the Jenkins job, and it will execute the Maven build process.
+
+## Script
+
+```
+
+node {
+    stage('Clone the repository') {
+        git credentialsId: 'devopscicd', url: 'https://github.com/mdjan2023/maven-standalone-application.git'
+    }
+
+    stage('Set up Maven') {
+        // Define the Maven installation
+        def mvnHome = '/usr/share/maven'
+
+        // Set up environment variables for Maven
+        env.PATH = "${mvnHome}/bin:${env.PATH}"
+        env.M2_HOME = mvnHome
+
+        // Display Maven version
+        sh 'mvn -version'
+    }
+
+    stage('Build the code') {
+        sh 'mvn install'
+    }
+}
