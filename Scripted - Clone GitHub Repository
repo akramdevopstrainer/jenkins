@@ -1,0 +1,40 @@
+
+**Script Name: Clone GitHub Repository**
+
+
+node {
+    stage('Clone Repository') {
+        git branch: 'main', credentialsId: 'github-jenkins', url: 'https://github.com/akramdevopstrainer/cicd-project-01.git'
+    }
+}
+
+
+```
+
+**Output:**
+
+```
+Started by user akram
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/Jenkins-pipeline-scripted-01
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Clone Repository)
+[Pipeline] git
+The recommended git tool is: NONE
+using credential github-jenkins
+Cloning the remote Git repository
+Cloning repository https://github.com/akramdevopstrainer/cicd-project-01.git
+...
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+```
+
+You can copy the script with the name and the output and use it as a SOP (Standard Operating Procedure) or include it in a README file in a Git repository. Make sure to replace the repository URL and credentials ID with the appropriate values for your environment.
+
+Let me know if you need any further assistance!
