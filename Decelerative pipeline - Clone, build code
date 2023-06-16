@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    tools{
+        maven 'mvn'
+    }
+
+    stages {
+        stage('Clone the repository') {
+            steps {
+                git credentialsId: 'devopscicd', url: 'https://github.com/mdjan2023/maven-standalone-application.git'
+            }
+        }
+        stage('build the code') {
+            steps {
+              sh 'mvn install'
+            }
+        }
+    }
+}
