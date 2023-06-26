@@ -60,3 +60,17 @@ Here's a step-by-step guide to installing Docker on Red Hat Linux Version 9:
 
    Docker will download the necessary image and run a container that prints a "Hello from Docker!" message.
 
+10.Enable the Docker service to start automatically on system boot by executing the following command:
+
+
+   systemctl enable docker
+   
+   This creates a symlink to the Docker service unit file in the appropriate systemd directory.
+
+11.Verify if the Docker service is enabled by running the following command:
+
+
+   systemctl is-enabled docker
+   
+   The output should indicate that the Docker service is "enabled," confirming that it will start automatically on system boot.
+
